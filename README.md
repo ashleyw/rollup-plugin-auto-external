@@ -37,6 +37,7 @@ export default {
       dependencies: true,
       packagePath: path.resolve('./packages/module/package.json'),
       peerDependencies: false,
+      exclude: ['react']
     }),
   ],
 };
@@ -90,3 +91,7 @@ Rollup will complain if `builtins` is present, and the build target is a browser
 #### `peerDependencies`
 
 `boolean`: defaults to `true`.
+
+#### `exclude`
+
+`array`: defaults to `[]`. Array of dependencies to not mark as external.

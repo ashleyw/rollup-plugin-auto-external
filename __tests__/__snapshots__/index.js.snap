@@ -346,6 +346,19 @@ export default index;
 "
 `;
 
+exports[`autoExternal(options) should handle excluded dependencies 1`] = `
+"import bar from 'bar';
+
+var foo = 'foo';
+
+var baz = 'baz';
+
+var index = \`\${foo}\${bar}\${baz}\`;
+
+export default index;
+"
+`;
+
 exports[`autoExternal(options) should handle extending external array 1`] = `
 "import foo from 'foo';
 import bar from 'bar';

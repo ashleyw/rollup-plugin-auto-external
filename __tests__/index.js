@@ -116,4 +116,11 @@ describe('autoExternal(options)', () => {
     bundle({
       input: path.resolve(__dirname, '../__fixtures__/scoped/index.js'),
     }));
+
+  it('should handle excluded dependencies', () =>
+    bundle({
+      input: path.resolve(__dirname, '../__fixtures__/deps/index.js'),
+    }, {
+      exclude: ['foo']
+    }));
 });

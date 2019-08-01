@@ -9,6 +9,7 @@ module.exports = ({
   dependencies = true,
   packagePath,
   peerDependencies = true,
+  exclude = []
 } = {}) => ({
   name: 'auto-external',
   options(opts) {
@@ -27,7 +28,12 @@ module.exports = ({
       ids = ids.concat(getBuiltins(semver.valid(builtins)));
     }
 
-    ids = ids.map(safeResolve).filter(Boolean);
+    exclude = exclude.map(safeResolve)
+
+    ids = ids
+          .map(safeResolve)
+          .filter(Boolean)
+          .filter(id => !exclude.includes(id));
 
     const external = id => {
       if (typeof opts.external === 'function' && opts.external(id)) {
